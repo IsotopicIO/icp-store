@@ -1,0 +1,4 @@
+[workspace]
+members = [
+    "src/isotopic_icp_store_backend",
+]
