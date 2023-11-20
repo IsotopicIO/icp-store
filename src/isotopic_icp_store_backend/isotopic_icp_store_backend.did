@@ -1,3 +1,30 @@
-service : {
-    "greet": (text) -> (text) query;
+type InitArgs = record {
+    owners : opt vec principal;
+};
+
+type UploadDataResult = record {
+    index : nat;
+    original_name : text;
+    file_size : nat;
+    isotopic_app_id : text;
+    platform : text;
+    status : text;
+    upload_timestamp : nat64;
+    chunks_length : nat32;
+}
+
+service : (InitArgs) -> {
+    sum_numbers : (nat8, nat8) -> (text) query;
+    upload_chunk : (nat, vec nat8) -> (bool);
+    get_upload_chunk : (nat, nat) -> (opt vec nat8) query;
+    get_chunk_at_stored_index : (nat) -> (opt vec nat8) query;
+    init_new_upload : (text, nat, text, text) -> (nat);
+    get_stable_memory_size : () -> (nat64) query;
+    get_upload_chunk_indeces : (nat) -> (opt vec nat) query;
+    delete_upload: (nat) -> (bool);
+    get_upload_details_by_index : (nat) -> (opt UploadDataResult) query;
+    get_uploads_by_iso_id : (text) -> (vec record {text; nat}) query;
+    mutate_uploads_to_new_iso_id : (text, text) -> (bool);
+    set_platform_upload : (text, text, opt nat) -> (bool);
+    get_chunk_max_size : () -> (nat64);
 }

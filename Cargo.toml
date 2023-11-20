@@ -2,3 +2,4 @@
 members = [
     "src/isotopic_icp_store_backend",
 ]
+resolver = "2"

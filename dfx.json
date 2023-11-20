@@ -4,19 +4,6 @@
       "candid": "src/isotopic_icp_store_backend/isotopic_icp_store_backend.did",
       "package": "isotopic_icp_store_backend",
       "type": "rust"
-    },
-    "isotopic_icp_store_frontend": {
-      "dependencies": [
-        "isotopic_icp_store_backend"
-      ],
-      "frontend": {
-        "entrypoint": "src/isotopic_icp_store_frontend/src/index.html"
-      },
-      "source": [
-        "src/isotopic_icp_store_frontend/assets",
-        "dist/isotopic_icp_store_frontend/"
-      ],
-      "type": "assets"
     }
   },
   "defaults": {
